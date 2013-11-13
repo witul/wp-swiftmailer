@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="wp-swiftmailer" default="dist">
+    <property name="version" value="v5.0.2" />
+    <target name="clean">
+        <delete dir="./dist" />
+        <delete dir="./build" />
+    </target>
+    <target name="prepare" depends="clean" >
+        <echo message="Making the build directories" />
+        <mkdir dir="./dist" />
+        <mkdir dir="./build" />
+        <echo message="Update SwiftMailer from GitHub" />
+        <exec command="git pull" dir="./src/swiftmailer" checkreturn="false" />
+        <exec command="git checkout ${version}" dir="./src/swiftmailer" checkreturn="false" />
+        <echo message="Copying files" />
+        <copy todir="./build/wp-swiftmailer">
+            <fileset dir="./src">
+                <include name="swiftmailer/lib/**" />
+                <include name="swiftmailer/LICENSE" />
+                <include name="swiftmailer/VERSION" />
+                <include name="index.php" />
+                <include name="LICENSE" />
+            </fileset>
+        </copy>
+    </target>
+    <target name="dist" depends="prepare">
+        <tstamp />
+        <echo msg="Creating archive..." />
+        <tar destfile="./dist/wp-swiftmailer-${version}-${DSTAMP}.tar.gz" compression="gzip">
+            <fileset dir="./build">
+                <include name="*" />
+            </fileset>
+        </tar>
+        <echo msg="Files copied and compressed in build directory OK!" />
+        <delete dir="./build" />
+    </target>
+</project>

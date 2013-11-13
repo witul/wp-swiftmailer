@@ -3,7 +3,7 @@
 Plugin Name: WP SwiftMailer
 Plugin URI: skyhost.pl
 Description: SwiftMailer wrapper for WP
-Version: 5.0.3
+Version: 5.0.2
  */
 
 class WP_Swiftmailer{
