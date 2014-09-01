@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="wp-swiftmailer" default="dist">
-    <property name="version" value="v5.1.0-DEV" />
+    <property name="version" value="v5.2.2-DEV" />
     <target name="clean">
         <delete dir="./dist" />
         <delete dir="./build" />
