@@ -23,6 +23,16 @@
             </fileset>
         </copy>
     </target>
+    <!-- <target name="test"> -->
+    <!--     <phpunit configuration="./phpunit.xml" haltonfailure="true" haltonerror="true"> -->
+    <!--         <formatter todir="reports" type="xml"/> -->
+    <!--         <batchtest> -->
+    <!--             <fileset dir="tests"> -->
+    <!--                 <include name="**/*test*.php"/> -->
+    <!--             </fileset> -->
+    <!--         </batchtest> -->
+    <!--     </phpunit> -->
+    <!-- </target> -->
     <target name="dist" depends="prepare">
         <tstamp />
         <echo msg="Creating archive..." />
